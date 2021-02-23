@@ -25,6 +25,10 @@ export default {
     { 
       src: '~plugins/element.js',
       ssr: true
+    },
+    {
+      src: '~plugins/axios.js',
+      srr: true
     }
   ],
 

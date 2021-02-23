@@ -11,7 +11,14 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      list:[]
+    }
+  },
+  async asyncData({$axios}) {
+    const res = await $axios.get('/list')
+  },
 }
 </script>
 
