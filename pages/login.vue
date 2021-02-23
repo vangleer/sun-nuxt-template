@@ -15,7 +15,7 @@
         <el-input v-model="username" placeholder="请输入用户名" prefix-icon="el-icon-user" />
       </div>
       <div class="form-item">
-        <el-input v-model="password" placeholder="请输入密码" prefix-icon="el-icon-sell" />
+        <el-input v-model="password" placeholder="请输入密码" prefix-icon="el-icon-lock" />
       </div>
       <div class="form-item">
         <el-input v-model="code" placeholder="请输入验证码" prefix-icon="el-icon-sell" />
@@ -104,6 +104,7 @@ export default {
   padding: 20px;
   .form-item {
     display: flex;
+    align-items: center;
     margin-top: 20px;
     h2 {
       width: 100%;

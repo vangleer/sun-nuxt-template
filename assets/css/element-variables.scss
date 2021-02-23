@@ -1,7 +1,18 @@
 /* 改变主题色变量 */
 $--color-primary: #30c7b4;
-
+$--border-color-hover: #30c7b4;
+$--input-hover-border: #30c7b4;
+$--input-focus-border: #30c7b4;
 /* 改变 icon 字体路径变量，必需 */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
-@import "~element-ui/packages/theme-chalk/src/button";
+@import "~element-ui/packages/theme-chalk/src/index";
+
+*::selection {
+  color: #fff;
+  background-color: $--color-primary;
+}
+*::-moz-selection {
+  color: #fff;
+  background-color: $--color-primary;
+}
