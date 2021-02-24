@@ -8,8 +8,13 @@
       :text-color="theme.navTextColor"
       :active-text-color="theme.navTextColor"
       unique-opened
+      :collapse-transition="true"
       :collapse="isCollapse"
     >
+       <div class="h-nav-top">
+        <img src="@/assets/imgs/logo.png" alt="">
+        <span class="h-text" v-if="!isCollapse">{{title}}</span>
+      </div>
       <el-submenu :index="item.path" v-for="(item) in routeList" :key="item.path">
         <template slot="title">
           <i :class="item.icon" :style="{color: theme.navTextColor}"></i>
@@ -29,12 +34,14 @@
 <script>
 import {mapState} from 'vuex'
 export default {
-  computed:{
-    ...mapState(['theme','routeList','isCollapse','currentPath'])
+  data() {
+    return {
+      title:'Sun Admin',
+      showTitle:true
+    }
   },
-  async asyncData({$axios}) {
-    const res = await $axios('/data/router.json')
-    console.log(res)
+  computed:{
+    ...mapState(['theme','routeList','isCollapse','currentPath']),
   },
   methods: {
     handleSelect(path, indexPath) {
@@ -46,10 +53,33 @@ export default {
 
 <style scoped>
 .h-nav {
+  width: auto;
   height: 100vh;
   background-color: #03152A !important;
 }
 .el-menu-item.is-active {
   background-color: #30c7b4 !important
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+.h-nav-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+.h-nav-top span {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  padding-left: 10px;
+}
+.h-nav-top img {
+  width: 45px;
+  height: 45px;
 }
 </style>

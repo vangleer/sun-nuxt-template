@@ -3,7 +3,9 @@
     <Nav />
     <div class="h-content">
       <Header/>
-      <Nuxt />
+      <div class="h-body">
+        <Nuxt />
+      </div>
     </div>
   </div>
 </template>
@@ -56,10 +58,14 @@ html {
 .h-content {
   /* margin-left: 200px; */
   flex: 1;
+  background-color: #f3faf9;
 }
 .default-layout {
   width: 100vw;
   height: 100vh;
   display: flex;
+}
+.h-body {
+  padding: 15px;
 }
 </style>

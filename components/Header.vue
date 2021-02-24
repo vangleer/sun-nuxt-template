@@ -94,6 +94,7 @@ export default {
   height: 100px;
   box-shadow: 0 1px 10px rgba(0,0,0,0.1);
   color: #909399;
+  background-color: #fff;
   .top {
     width: 100%;
     display: flex;

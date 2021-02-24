@@ -4,6 +4,8 @@ div,img,span,p,ul,li,ol,h1,h2,h3,h4,h5 {
   box-sizing: border-box;
   
 }
+
+/* 重置 element 样式 */
 .h-header .el-tabs__nav-wrap::after {
   height: 0px;
   opacity: 0 !important;
@@ -17,4 +19,8 @@ div,img,span,p,ul,li,ol,h1,h2,h3,h4,h5 {
 }
 .h-header .el-tabs__item {
   padding: 0px 10px !important;
+}
+
+.el-menu {
+  border: 0 !important;
 }

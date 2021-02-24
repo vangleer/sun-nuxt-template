@@ -17,11 +17,13 @@ import {
   Tabs,
   TabPane,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Card
 } from 'element-ui'
 // 自定义主题文件
 import '@/assets/css/element-variables.scss'
 // 安装组件
+Vue.use(Card)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
 Vue.use(Tabs)

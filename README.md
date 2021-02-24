@@ -1,4 +1,8 @@
-# Nuxt 后台管理系统
+# Sun-Nuxt-Admin 后台管理系统
+
+## 描述
+
+- 基于 Nuxtjs + Element-ui 实现的中后台管理系统模板
 
 ## 安装
 

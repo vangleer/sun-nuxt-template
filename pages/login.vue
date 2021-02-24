@@ -44,7 +44,7 @@ export default {
   layout:'login-layout',
   data() {
     return {
-      title:'Nuxt-template',
+      title:'Sun Admin',
       username: 'admin',
       password: '123456',
       code: '',
