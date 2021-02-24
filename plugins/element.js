@@ -15,11 +15,15 @@ import {
   DropdownItem,
   DropdownMenu,
   Tabs,
-  TabPane
+  TabPane,
+  Breadcrumb,
+  BreadcrumbItem
 } from 'element-ui'
 // 自定义主题文件
 import '@/assets/css/element-variables.scss'
 // 安装组件
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
 Vue.use(Tabs)
 Vue.use(TabPane)
 Vue.use(Button)

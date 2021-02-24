@@ -1,4 +1,4 @@
-export default function({$axios}) {
+export default function({$axios,store}) {
   $axios.defaults.timeout = 50000
   // $axios.defaults.baseURL = 'http://localhost:4000'
 

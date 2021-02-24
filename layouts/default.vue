@@ -10,8 +10,20 @@
 <script>
 import Nav from '../components/Nav.vue'
 import Header from '../components/Header.vue'
+import {mapState} from 'vuex'
 export default {
-  components:{Nav,Header}
+  computed:{
+    ...mapState(['openRouteList','currentRoute'])
+  },
+  components:{Nav,Header},
+  watch:{
+    '$route':{
+      immediate:true,
+      handler:function(to) {
+        this.$store.commit('M_UPDATE_CURRENT_ROUTE',to.path)
+      }
+    }
+  }
 }
 </script>
 <style>

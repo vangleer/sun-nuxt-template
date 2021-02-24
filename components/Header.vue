@@ -6,11 +6,10 @@
           <i class="el-icon-s-unfold" style="font-size: 24px;"></i>
         </div>
         <div class="current-box">
-          <span>主页</span>
-          <span>/</span>
-          <span>扩展组件</span>
-          <span>/</span>
-          <span>扩展组件</span>
+          <el-breadcrumb separator="/">
+            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+            <el-breadcrumb-item v-for="item in currentLine" :key="item">{{item}}</el-breadcrumb-item>
+          </el-breadcrumb>
         </div>
       </div>
       <div class="h-header-right">
@@ -31,11 +30,8 @@
         <i class="el-icon-arrow-left"></i>
       </div>
       <div class="box-list">
-        <el-tabs v-model="activeName" closable @tab-click="handleClick">
-          <el-tab-pane label="用户管理" name="first"></el-tab-pane>
-          <el-tab-pane label="配置管理" name="second"></el-tab-pane>
-          <el-tab-pane label="角色管理" name="third"></el-tab-pane>
-          <el-tab-pane label="定时任务补偿" name="fourth"></el-tab-pane>
+        <el-tabs v-model="activeName" closable @tab-click="handleClick" @tab-remove="handleRemove">
+          <el-tab-pane v-for="item in openRouteList" :key="item.path" :label="item.title" :name="item.path"></el-tab-pane>
         </el-tabs>
       </div>
       <div class="fold-btn">
@@ -46,16 +42,36 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
+  computed:{
+    ...mapState(['openRouteList','currentRoute','currentLine']),
+    activeName:{
+      get() {
+        return this.$store.state.currentPath
+      },
+      set(val) {
+        this.$router.push(val)
+      }
+    }
+  },
   data() {
     return {
-      activeName: 'second'
+      // activeName: 'second'
     }
+  },
+  created() {
+    // this.activeName = this.currentRoute.path
   },
   methods: {
     // 展开和收起
     handleFoldClick() {
       this.$store.commit('M_UPDATE_IS_COLLAPSE')
+    },
+    // 删除打开的
+    handleRemove(path) {
+      this.$store.commit('M_DELETE_OPEN_ROUTE_LIST',path)
+      this.$router.back()
     },
     handleClick(tab, event) {
         console.log(tab, event);
