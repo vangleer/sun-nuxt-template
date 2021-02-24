@@ -1,13 +1,17 @@
 <template>
-  <div>
+  <div class="default-layout">
     <Nav />
-    <Nuxt />
+    <div class="h-content">
+      <Header/>
+      <Nuxt />
+    </div>
   </div>
 </template>
 <script>
 import Nav from '../components/Nav.vue'
+import Header from '../components/Header.vue'
 export default {
-  components:{Nav}
+  components:{Nav,Header}
 }
 </script>
 <style>
@@ -36,5 +40,14 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+.h-content {
+  /* margin-left: 200px; */
+  flex: 1;
+}
+.default-layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
 </style>

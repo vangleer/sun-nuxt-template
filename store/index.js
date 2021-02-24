@@ -2,9 +2,12 @@ export const state = () => ({
   counter: 0,
   theme: {
     navBg: '#03152A',
-    navItemBg: '#30c7b4'
+    navItemBg: '#30c7b4',
+    navTextColor:'#fff'
   },
-  routeList:[]
+  routeList:[],
+  isCollapse: true // 是否展开 menu
+  
 })
 
 export const mutations = {
@@ -13,6 +16,9 @@ export const mutations = {
   },
   M_UPDATA_ROUTELIST(state,payload) {
     state.routeList = payload
+  },
+  M_UPDATE_IS_COLLAPSE(state) {
+    state.isCollapse = !state.isCollapse
   }
 }
 

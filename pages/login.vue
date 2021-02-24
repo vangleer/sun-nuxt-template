@@ -2,9 +2,7 @@
   <div class="login">
     <div class="header">
       <div class="h-left-box">
-        <div class="logo-box">
-          <img src="@/assets/imgs/logo.png" alt="">
-        </div>
+        <img src="@/assets/imgs/logo.png" alt="">
         <h1 class="h-text">{{title}}</h1>
       </div>
       <el-button-group>
@@ -43,6 +41,7 @@
 
 <script>
 export default {
+  layout:'login-layout',
   data() {
     return {
       title:'Nuxt-template',
@@ -107,18 +106,8 @@ export default {
 .h-left-box {
   display: flex;
   align-items: center;
-}
-.logo-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  background-color: #30c7b4;
-  box-shadow: 0px 0px 15px rgba(18,200,185,0.5);
-  border-radius: 5px;
   img {
-    width: 40px;
+    width: 60px;
   }
 }
 .login-box {
