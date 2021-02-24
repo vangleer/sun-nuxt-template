@@ -73,7 +73,7 @@ export default {
       // 重置数据
       this.refreshData()
       // 跳转到首页
-      this.$router.replace('/')
+      this.$router.replace('/index')
     },
     refreshData() {
       this.username = ''

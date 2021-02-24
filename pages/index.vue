@@ -16,8 +16,9 @@ export default {
       list:[]
     }
   },
-  async asyncData({$axios}) {
-    const res = await $axios.get('/list')
+  async asyncData({$axios,store}) {
+    const res = await $axios('/data/router.json')
+    store.commit('M_UPDATA_ROUTELIST',JSON.parse(JSON.stringify(res.data)))
   },
 }
 </script>
