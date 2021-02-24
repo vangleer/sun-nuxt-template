@@ -1,13 +1,25 @@
 <template>
   <div class="login">
     <div class="header">
-      <div class="logo-box">
-        <img src="@/assets/imgs/logo.png" alt="">
+      <div class="h-left-box">
+        <div class="logo-box">
+          <img src="@/assets/imgs/logo.png" alt="">
+        </div>
+        <h1 class="h-text">{{title}}</h1>
       </div>
-      <h1 class="h-text">Nuxt-template</h1>
+      <el-button-group>
+        <el-button 
+          :type="buttonType === index ? 'primary' : 'default'" 
+          v-for="(item,index) in buttonList" 
+          :key="index"
+          @click="buttonType=index"
+        >
+          {{item}}
+        </el-button>
+      </el-button-group>
     </div>
 
-    <div class="login-box">
+    <div class="login-box" :class="[className]">
       <div class="form-item">
         <h2>用户登录</h2>
       </div>
@@ -15,7 +27,7 @@
         <el-input v-model="username" placeholder="请输入用户名" prefix-icon="el-icon-user" />
       </div>
       <div class="form-item">
-        <el-input v-model="password" placeholder="请输入密码" prefix-icon="el-icon-lock" />
+        <el-input v-model="password" type="password" placeholder="请输入密码" prefix-icon="el-icon-lock" />
       </div>
       <div class="form-item">
         <el-input v-model="code" placeholder="请输入验证码" prefix-icon="el-icon-sell" />
@@ -33,10 +45,19 @@
 export default {
   data() {
     return {
-      username: '',
-      password: '',
+      title:'Nuxt-template',
+      username: 'admin',
+      password: '123456',
       code: '',
+      buttonType:1,
+      buttonList:['居左','居中','居右'],
+      classList:['login-box-left','login-box-center','login-box-right'],
       captchaImg: 'https://test.52jzsj.com/Admin/Pub/Login/getVerifyCode?time=' + Math.round(new Date() / 1000)
+    }
+  },
+  computed:{
+    className() {
+      return this.classList[this.buttonType]
     }
   },
   methods:{
@@ -72,7 +93,8 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  padding-left: 100px;
+  justify-content: space-between;
+  padding: 0 100px;
   width: 100vw;
   height: 100px;
   background-color: rgba(0,0,0,0.3);
@@ -81,6 +103,10 @@ export default {
     color: #fff;
     padding-left: 12px;
   }
+}
+.h-left-box {
+  display: flex;
+  align-items: center;
 }
 .logo-box {
   display: flex;
@@ -96,11 +122,13 @@ export default {
   }
 }
 .login-box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 400px;
   height: 380px;
   border-radius: 10px;
   background-color: #fff;
-  margin: 100px auto;
   padding: 20px;
   .form-item {
     display: flex;
@@ -116,5 +144,15 @@ export default {
   .code-img {
     width: 100px;
   }
+}
+.login-box-center {
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.login-box-left {
+   left: 10%;
+}
+.login-box-right {
+  right: 10%;
 }
 </style>
