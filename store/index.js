@@ -23,7 +23,6 @@ export const mutations = {
     state.isCollapse = !state.isCollapse
   },
   M_UPDATE_CURRENT_ROUTE(state,path) {
-    console.log(path)
     let current
     let currentLine = []
     for (let i = 0; i < state.routeList.length;i++) {
@@ -35,19 +34,28 @@ export const mutations = {
           break
         }
       } else {
-        current = item
+        if(item.path === path) {
+          current = item
+          currentLine.push(item.title,current.title)
+        }
       }
     }
-    state.currentPath = path
-    state.currentRoute = current
-    state.currentLine = currentLine
-    let c = state.openRouteList.some(item=>item.path === path)
-    if(!c) {
-      console.log('啦啦啦啦',current)
-      state.openRouteList.push(current)
+    if(current) {
+      state.currentPath = path
+      state.currentRoute = current
+      state.currentLine = currentLine
+      let c = state.openRouteList.some(item=>item.path === path)
+      if(!c) {
+        console.log('啦啦啦啦',current)
+        state.openRouteList.push(current)
+      }
     }
   },
   M_DELETE_OPEN_ROUTE_LIST(state,path) {
-    state.openRouteList = state.openRouteList.filter(item=>item.path !== path)
+    let list = [...state.openRouteList]
+    let index = list.findIndex(item=>item.path === path)
+    list.splice(index,1)
+    state.openRouteList = list
+    return index
   }
 }

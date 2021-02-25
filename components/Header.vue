@@ -1,7 +1,7 @@
 <template>
-  <div class="h-header">
+  <div class="sun-header">
     <div class="top">
-      <div class="h-header-left">
+      <div class="sun-header-left">
         <div class="fold-btn" @click="handleFoldClick">
           <i class="el-icon-s-unfold" style="font-size: 24px;"></i>
         </div>
@@ -12,15 +12,15 @@
           </el-breadcrumb>
         </div>
       </div>
-      <div class="h-header-right">
-        <img :src="userInfo.avatar" alt="头像">
+      <div class="sun-header-right">
+        <img src="https://cdn.eleadmin.com/20200610/avatar.jpg" alt="头像">
         <el-dropdown @command="handleDropClick">
           <span class="el-dropdown-link">
-            {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
+            黄万通<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item icon="el-icon-key" command="update_password">修改密码</el-dropdown-item>
-            <el-dropdown-item divided icon="el-icon-switch-button" command="logout">退出登录</el-dropdown-item>
+            <el-dropdown-item divided icon="el-icon-switcsun-button" command="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -45,7 +45,7 @@
 import {mapState} from 'vuex'
 export default {
   computed:{
-    ...mapState(['openRouteList','currentRoute','currentLine','userInfo']),
+    ...mapState(['openRouteList','currentRoute','currentLine']),
     activeName:{
       get() {
         return this.$store.state.currentPath
@@ -70,8 +70,13 @@ export default {
     },
     // 删除打开的
     handleRemove(path) {
+      if(path === this.currentRoute.path) {
+        let index = this.openRouteList.findIndex(item=>item.path === path)
+        if (index>0) {
+          this.$router.replace(this.openRouteList[index-1].path)
+        }
+      }
       this.$store.commit('M_DELETE_OPEN_ROUTE_LIST',path)
-      this.$router.back()
     },
     handleClick(tab, event) {
         console.log(tab, event);
@@ -89,7 +94,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.h-header {
+.sun-header {
   width: 100%;
   height: 100px;
   box-shadow: 0 1px 10px rgba(0,0,0,0.1);
@@ -116,7 +121,7 @@ export default {
     }
   }
 }
-.h-header-left {
+.sun-header-left {
   display: flex;
   align-items: center;
 }
@@ -135,7 +140,7 @@ export default {
   padding-bottom: 3px;
   margin-left: 20px;
 }
-.h-header-right {
+.sun-header-right {
   display: flex;
   align-items: center;
   cursor: pointer;

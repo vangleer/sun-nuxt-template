@@ -1,5 +1,5 @@
 <template>
-  <div class="h-body">
+  <div class="sun-body">
     <el-card shadow="never">
       <!-- 搜索表单 -->
       <el-form

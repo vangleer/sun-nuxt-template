@@ -1,9 +1,9 @@
 <template>
   <div class="login">
     <div class="header">
-      <div class="h-left-box">
+      <div class="sun-left-box">
         <img src="@/assets/imgs/logo.png" alt="">
-        <h1 class="h-text">{{title}}</h1>
+        <h1 class="sun-text">{{title}}</h1>
       </div>
       <el-button-group>
         <el-button 
@@ -97,13 +97,13 @@ export default {
   width: 100vw;
   height: 100px;
   background-color: rgba(0,0,0,0.3);
-  .h-text {
+  .sun-text {
     font-size: 28px;
     color: #fff;
     padding-left: 12px;
   }
 }
-.h-left-box {
+.sun-left-box {
   display: flex;
   align-items: center;
   img {
