@@ -18,11 +18,37 @@ import {
   TabPane,
   Breadcrumb,
   BreadcrumbItem,
-  Card
+  Card,
+  Timeline,
+  TimelineItem,
+  Scrollbar,
+  Avatar,
+  Table,
+  TableColumn,
+  Progress,
+  Tag,
+  Link,
+  Container,
+  Main,
+  Aside,
+  Header,
 } from 'element-ui'
 // 自定义主题文件
-import '@/assets/css/element-variables.scss'
+import '@/assets/css/theme/element-variables.scss'
 // 安装组件
+Vue.use(Container)
+Vue.use(Main)
+Vue.use(Aside)
+Vue.use(Header)
+Vue.use(Tag)
+Vue.use(Link)
+Vue.use(Progress)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Avatar)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
+Vue.use(Scrollbar)
 Vue.use(Card)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)

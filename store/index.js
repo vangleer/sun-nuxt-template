@@ -1,7 +1,7 @@
 import routeList from '../static/data/router'
 console.log()
 export const state = () => ({
-  counter: 0,
+  userInfo: {username:'黄万通'},
   theme: {
     navBg: '#03152A',
     navItemBg: '#30c7b4',
@@ -16,9 +16,6 @@ export const state = () => ({
 })
 
 export const mutations = {
-  increment(state) {
-    state.counter++
-  },
   M_UPDATE_ROUTELIST(state,payload) {
     state.routeList = payload
   },

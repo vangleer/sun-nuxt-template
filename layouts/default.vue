@@ -1,13 +1,20 @@
 <template>
-  <div class="default-layout">
+<el-container class="default-layout">
+  <Nav />
+  <el-container>
+    <el-header :style="{height:'100px',padding:'0px'}"><Header/></el-header>
+    <el-main><Nuxt /></el-main>
+  </el-container>
+</el-container>
+  <!-- <div class="default-layout">
     <Nav />
     <div class="h-content">
       <Header/>
-      <div class="h-body">
+      <div>
         <Nuxt />
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 <script>
 import Nav from '../components/Nav.vue'
@@ -56,9 +63,9 @@ html {
   padding: 0;
 }
 .h-content {
-  /* margin-left: 200px; */
   flex: 1;
   background-color: #f3faf9;
+  height: 100vh;
 }
 .default-layout {
   width: 100vw;
@@ -66,6 +73,7 @@ html {
   display: flex;
 }
 .h-body {
-  padding: 15px;
+  flex: 1;
+  background-color: #f8f8f8;
 }
 </style>

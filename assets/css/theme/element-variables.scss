@@ -3,6 +3,10 @@ $--color-primary: #30c7b4;
 $--border-color-hover: #30c7b4;
 $--input-hover-border: #30c7b4;
 $--input-focus-border: #30c7b4;
+$--h-color: #303133;
+$--h-warning-text: #faad14;
+$--h-success-text: $--color-primary;
+$--h-info-text: #52c41a;
 /* 改变 icon 字体路径变量，必需 */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
@@ -15,4 +19,16 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 *::-moz-selection {
   color: #fff;
   background-color: $--color-primary;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: $--h-color;
+}
+.h-text-warning {
+  color: $--h-warning-text;
+}
+.h-text-success {
+  color: $--h-success-text;
+}
+.h-text-info {
+  color: $--h-info-text;
 }
