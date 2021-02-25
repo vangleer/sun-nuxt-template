@@ -32,10 +32,40 @@ import {
   Main,
   Aside,
   Header,
+  Switch,
+  Pagination,
+  Form,
+  FormItem,
+  Select,
+  Option,
+  DatePicker,
+  Radio,
+  RadioGroup,
+  InputNumber,
+  TimePicker,
+  Step,
+  Steps,
+  Alert,
+  Divider
 } from 'element-ui'
 // 自定义主题文件
 import '@/assets/css/theme/element-variables.scss'
 // 安装组件
+Vue.use(Divider)
+Vue.use(Alert)
+Vue.use(Step)
+Vue.use(Steps)
+Vue.use(TimePicker)
+Vue.use(InputNumber)
+Vue.use(DatePicker)
+Vue.use(RadioGroup)
+Vue.use(Radio)
+Vue.use(Option)
+Vue.use(Select)
+Vue.use(FormItem)
+Vue.use(Form)
+Vue.use(Pagination)
+Vue.use(Switch)
 Vue.use(Container)
 Vue.use(Main)
 Vue.use(Aside)
