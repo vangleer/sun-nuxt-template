@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="h-page-header">
-      <div class="h-page-title">复杂表单</div>
-      <div class="h-page-desc">复杂表单常见于一次性输入和提交大批量数据的场景。</div>
+    <div class="sun-page-header">
+      <div class="sun-page-title">复杂表单</div>
+      <div class="sun-page-desc">复杂表单常见于一次性输入和提交大批量数据的场景。</div>
     </div>
-    <div class="h-body" style="padding-bottom: 71px;">
+    <div class="sun-body" style="padding-bottom: 71px;">
       <el-form
           ref="demoForm"
           :model="form"
@@ -42,7 +42,6 @@
                 <el-select
                     v-model="form.administrator"
                     placeholder="请选择仓库管理员"
-                    class="ele-block"
                     clearable>
                   <el-option label="SunSmile" :value="1"/>
                   <el-option label="Jasmine" :value="2"/>
@@ -54,7 +53,6 @@
                 <el-select
                     v-model="form.approver"
                     placeholder="请选择审批人"
-                    class="ele-block"
                     clearable>
                   <el-option label="SunSmile" :value="1"/>
                   <el-option label="Jasmine" :value="2"/>
@@ -69,8 +67,7 @@
                     unlink-panels
                     range-separator="至"
                     start-placeholder="开始日期"
-                    end-placeholder="结束日期"
-                    class="ele-fluid"/>
+                    end-placeholder="结束日期"/>
               </el-form-item>
             </el-col>
             <el-col :md="8" :sm="12">
@@ -78,7 +75,6 @@
                 <el-select
                     v-model="form.type"
                     placeholder="请选择仓库类型"
-                    class="ele-fluid"
                     clearable>
                   <el-option label="私密" :value="1"/>
                   <el-option label="公开" :value="2"/>
@@ -113,7 +109,6 @@
                 <el-select
                     v-model="form.executor"
                     placeholder="请选择执行人"
-                    class="ele-fluid"
                     clearable>
                   <el-option label="SunSmile" :value="1"/>
                   <el-option label="Jasmine" :value="2"/>
@@ -125,7 +120,6 @@
                 <el-select
                     v-model="form.officer"
                     placeholder="请选择责任人"
-                    class="ele-fluid"
                     clearable>
                   <el-option label="SunSmile" :value="1"/>
                   <el-option label="Jasmine" :value="2"/>
@@ -137,7 +131,6 @@
                 <el-time-picker
                     v-model="form.reminder"
                     placeholder="请选择提醒时间"
-                    class="ele-fluid"
                     :picker-options="{selectableRange: '00:00:00 - 23:59:59'}"/>
               </el-form-item>
             </el-col>
@@ -146,7 +139,6 @@
                 <el-select
                     v-model="form.taskType"
                     placeholder="请选择任务类型"
-                    class="ele-block"
                     clearable>
                   <el-option label="私密" :value="1"/>
                   <el-option label="公开" :value="2"/>
@@ -185,8 +177,7 @@
                 <el-select
                     v-if="$index===editIndex"
                     v-model="editRow.department"
-                    placeholder="请选择部门"
-                    class="ele-fluid">
+                    placeholder="请选择部门">
                   <el-option label="研发部" value="研发部"/>
                   <el-option label="测试部" value="测试部"/>
                   <el-option label="产品部" value="产品部"/>

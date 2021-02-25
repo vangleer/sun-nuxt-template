@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="h-page-header">
-      <div class="h-page-title">基础表单</div>
-      <div class="h-page-desc">表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。</div>
+    <div class="sun-page-header">
+      <div class="sun-page-title">基础表单</div>
+      <div class="sun-page-desc">表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。</div>
     </div>
-    <div class="h-body">
+    <div class="sun-body">
       <el-card shadow="never">
         <el-form
             ref="demoForm"

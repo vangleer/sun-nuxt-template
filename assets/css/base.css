@@ -28,7 +28,7 @@ div,img,span,p,ul,li,ol,h1,h2,h3,h4,h5 {
 .el-card .el-card__header {
   padding: 13px 20px;
 }
-.h-body .el-card {
+.sun-body .el-card {
   margin-bottom: 15px;
 }
 
@@ -45,12 +45,14 @@ div,img,span,p,ul,li,ol,h1,h2,h3,h4,h5 {
   background-color: #f4f4f5;
 }
 
-.h-page-header {
+.sun-page-header {
   font-size: 19px;
   color: #303133;
   margin-bottom: 15px;
+  background-color: #fff;
+  padding: 20px 25px 16px;
 }
-.h-page-desc {
+.sun-page-desc {
   margin-top: 8px;
   color: #909399;
   font-size: 14px;

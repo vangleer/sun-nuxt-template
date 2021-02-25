@@ -3,18 +3,9 @@
   <Nav />
   <el-container>
     <el-header :style="{height:'100px',padding:'0px'}"><Header/></el-header>
-    <el-main><Nuxt /></el-main>
+    <el-main class="sun-content"><Nuxt /></el-main>
   </el-container>
 </el-container>
-  <!-- <div class="default-layout">
-    <Nav />
-    <div class="h-content">
-      <Header/>
-      <div>
-        <Nuxt />
-      </div>
-    </div>
-  </div> -->
 </template>
 <script>
 import Nav from '../components/Nav.vue'
@@ -62,18 +53,15 @@ html {
   margin: 0;
   padding: 0;
 }
-.h-content {
-  flex: 1;
-  background-color: #f3faf9;
-  height: 100vh;
+.sun-content {
+  background-color: #f8f8f8;
 }
 .default-layout {
   width: 100vw;
   height: 100vh;
   display: flex;
 }
-.h-body {
+.sun-body {
   flex: 1;
-  background-color: #f8f8f8;
 }
 </style>

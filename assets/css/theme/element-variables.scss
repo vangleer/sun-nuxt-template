@@ -3,10 +3,12 @@ $--color-primary: #30c7b4;
 $--border-color-hover: #30c7b4;
 $--input-hover-border: #30c7b4;
 $--input-focus-border: #30c7b4;
-$--h-color: #303133;
-$--h-warning-text: #faad14;
-$--h-success-text: $--color-primary;
-$--h-info-text: #52c41a;
+$-sun-color: #303133;
+$-sun-warning-text: #faad14;
+$-sun-success-text: $--color-primary;
+$-sun-info-text: #52c41a;
+$-sun-danger-text: #ff4d4f;
+$-sun-delete-text: #909399;
 /* 改变 icon 字体路径变量，必需 */
 $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
@@ -21,14 +23,27 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
   background-color: $--color-primary;
 }
 h1,h2,h3,h4,h5,h6 {
-  color: $--h-color;
+  color: $-sun-color;
 }
-.h-text-warning {
-  color: $--h-warning-text;
+.sun-text-warning {
+  color: $-sun-warning-text;
 }
-.h-text-success {
-  color: $--h-success-text;
+.sun-text-success {
+  color: $-sun-success-text;
 }
-.h-text-info {
-  color: $--h-info-text;
+.sun-text-info {
+  color: $-sun-info-text;
+}
+.sun-text-danger {
+  color: $-sun-danger-text;
+}
+.sun-text-delete {
+  color: $-sun-delete-text;
+  text-decoration: line-through;
+}
+.sun-text-tip {
+  color: $-sun-delete-text;
+  font-size: 13px;
+  padding-top: 5px;
+  display: inline-block;
 }

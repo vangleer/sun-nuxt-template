@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="h-page-header">
-      <div class="h-page-title">分步表单</div>
-      <div class="h-page-desc">将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</div>
+    <div class="sun-page-header">
+      <div class="sun-page-title">分步表单</div>
+      <div class="sun-page-desc">将一个冗长或用户不熟悉的表单任务分成多个步骤，指导用户完成。</div>
     </div>
-    <div class="h-body">
+    <div class="sun-body">
       <el-card
           shadow="never"
           body-style="padding: 15px 20px 25px 20px;">
@@ -29,7 +29,6 @@
               <el-select
                   v-model="form1.account"
                   placeholder="请选择付款账户"
-                  class="ele-fluid"
                   clearable>
                 <el-option
                     label="eleadmin@eclouds.com"
@@ -75,13 +74,11 @@
               ref="form2"
               :model="form2"
               :rules="rules2"
-              label-width="140px"
-              class="ele-form-detail">
+              label-width="140px">
             <el-alert
                 title="确认转账后，资金将直接打入对方账户，无法退回。"
                 type="info"
                 show-icon
-                class="ele-alert-border"
                 style="margin-bottom: 20px;"/>
             <el-form-item label="付款账户:">
               <span>{{ form1.account }}</span>
@@ -120,11 +117,9 @@
           </el-form>
           <!-- 第三步 -->
           <div v-if="active===2">
-            <ele-result title="操作成功" desc="预计两小时内到账">
-              <el-form
+             <el-form
                   label-width="100px"
-                  size="mini"
-                  class="ele-form-detail">
+                  size="mini">
                 <el-form-item label="付款账户:">
                   <span>{{ form1.account }}</span>
                 </el-form-item>
@@ -143,7 +138,6 @@
                 <el-button type="primary" @click="active=0">再转一笔</el-button>
                 <el-button>查看账单</el-button>
               </template>
-            </ele-result>
           </div>
         </div>
         <div v-if="active===0">

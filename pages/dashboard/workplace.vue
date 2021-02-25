@@ -1,12 +1,12 @@
 <template>
-  <div class="h-body">
+  <div class="sun-body">
     <!-- 顶部卡片 -->
     <el-card shadow="never" >
-      <div class="h-elip-box">
+      <div class="sun-elip-box">
         <el-avatar :size="68" :src="loginUser.avatar"/>
          <div style="margin-left: 10px;">
-            <h4 class="h-elip">早安，{{ loginUser.nickname }}，开始您一天的工作吧！</h4>
-            <div>
+            <h4 class="sun-elip">早安，{{ loginUser.nickname }}，开始您一天的工作吧！</h4>
+            <div class="sun-text-tip">
                <i class="el-icon-heavy-rain"></i>
               <span><s/><s/>今日阴转小雨，22℃ - 32℃，出门记得带伞哦。</span>
             </div>
@@ -91,14 +91,12 @@
               style="height: 318px;"
               wrapStyle="overflow-x: hidden;"
               viewStyle="padding: 20px 10px;">
-            <el-timeline
-                :reverse="false"
-                class="ele-timeline ele-timeline-act">
+            <el-timeline :reverse="false">
               <el-timeline-item
-                  v-for="(act, index) in activities"
-                  :key="index"
-                  :timestamp="act.timestamp"
-                  :type="act.primary ? 'primary' : ''">
+                v-for="(act, index) in activities"
+                :key="index"
+                :timestamp="act.timestamp"
+                :type="act.primary ? 'primary' : ''">
                 {{ act.title }}
               </el-timeline-item>
             </el-timeline>
@@ -134,7 +132,7 @@
               <el-table-column label="状态" width="70" align="center">
                 <template slot-scope="{row}">
                   <span
-                      :class="['h-text-warning','h-text-success','h-text-info'][row.state]">
+                      :class="['sun-text-warning','sun-text-success','sun-text-info'][row.state]">
                       {{ ['未开始', '进行中', '已完成'][row.state] }}
                   </span>
                 </template>
@@ -202,14 +200,14 @@
                 align="center">
               <template slot-scope="{row}">
                 <span
-                    :class="['ele-text-success','ele-text-danger','ele-text-warning','ele-text-info ele-text-delete'][row.state]">
+                    :class="['sun-text-success','sun-text-danger','sun-text-warning','sun-text-info sun-text-delete'][row.state]">
                     {{ ['进行中', '已延期', '未开始', '已结束'][row.state] }}
                 </span>
               </template>
             </el-table-column>
             <el-table-column label="进度" width="160" min-width="100" align="center">
               <template slot-scope="{row}">
-                <el-progress :percentage="row.progress" class="ele-text-small"/>
+                <el-progress :percentage="row.progress" class="sun-text-small"/>
               </template>
             </el-table-column>
           </el-table>
@@ -223,13 +221,13 @@
           <div
               v-for="(item,index) in userList"
               :key="index"
-              class="h-user-list">
+              class="sun-user-list">
             
-            <div class="h-user-info">
+            <div class="sun-user-info">
               <el-avatar :size="42" :src="item.avatar"/>
               <div style="padding-left: 12px;">
                 <div class="">{{ item.name }}</div>
-                <div class="">{{ item.desc }}</div>
+                <div class="sun-text-tip">{{ item.desc }}</div>
               </div>
             </div>
             <el-tag
@@ -408,31 +406,31 @@ export default {
           name: 'SunSmile',
           desc: 'UI设计师、交互专家',
           state: 0,
-          avatar: 'https://cdn.eleadmin.com/20200609/c184eef391ae48dba87e3057e70238fb.jpg'
+          avatar: '/imgs/avatar_01.jpg'
         },
         {
           name: '你的名字很好听',
           desc: '前端工程师',
           state: 0,
-          avatar: 'https://cdn.eleadmin.com/20200609/b6a811873e704db49db994053a5019b2.jpg'
+          avatar: '/imgs/avatar_02.jpg'
         },
         {
           name: '全村人的希望',
           desc: '前端工程师',
           state: 0,
-          avatar: 'https://cdn.eleadmin.com/20200609/948344a2a77c47a7a7b332fe12ff749a.jpg'
+          avatar: '/imgs/avatar_03.jpg'
         },
         {
           name: 'Jasmine',
           desc: '产品经理、项目经理',
           state: 1,
-          avatar: 'https://cdn.eleadmin.com/20200609/f6bc05af944a4f738b54128717952107.jpg'
+          avatar: '/imgs/avatar_04.jpg'
         },
         {
           name: '酷酷的大叔',
           desc: '组长、后端工程师',
           state: 1,
-          avatar: 'https://cdn.eleadmin.com/20200609/2d98970a51b34b6b859339c96b240dcd.jpg'
+          avatar: '/imgs/avatar_05.jpg'
         }
       ]
     }
@@ -448,47 +446,6 @@ export default {
 
 <style scoped>
 /* 顶部用户信息卡片 */
-.workplace-user-card .ele-cell-content {
-  overflow: hidden;
-}
-
-.workplace-count-group {
-  white-space: nowrap;
-}
-
-.workplace-count-item {
-  padding: 0 5px 0 25px;
-  box-sizing: border-box;
-  display: inline-block;
-  text-align: right;
-}
-
-.workplace-count-name {
-  padding-left: 8px;
-}
-
-.workplace-count-num {
-  font-size: 24px;
-  margin-top: 6px;
-}
-
-@media screen and (max-width: 992px) {
-  .workplace-count-item {
-    padding: 0 5px 0 10px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .workplace-user-card,
-  .workplace-count-group {
-    display: block;
-  }
-
-  .workplace-count-group {
-    margin-top: 15px;
-    text-align: right;
-  }
-}
 
 /* 快捷方式 */
 .app-link-block {
@@ -510,48 +467,6 @@ export default {
   margin-top: 8px;
 }
 
-/* 最新动态时间轴 */
-.ele-timeline-act {
-  padding-left: 50px;
-}
-
-.ele-timeline-act ::v-deep .el-timeline-item__timestamp {
-  margin: 0;
-  position: absolute;
-  top: 3px;
-  left: -45px;
-}
-
-.ele-timeline-act ::v-deep .el-timeline-item {
-  padding-bottom: 19px;
-}
-
-.ele-timeline-act ::v-deep .el-timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-/* 表格 */
-.workplace-table-card ::v-deep .el-table tbody > .el-table__row:last-child td {
-  border-bottom: none;
-}
-
-.workplace-table-card ::v-deep .el-table:before {
-  display: none;
-}
-
-.workplace-table-card .sort-handle {
-  cursor: move;
-  font-size: 18px;
-  vertical-align: middle;
-}
-
-.workplace-table-card ::v-deep .el-table__row.sortable-chosen {
-  background-color: hsla(0, 0%, 60%, .1);
-}
-
-.workplace-table-card ::v-deep .el-table__row.sortable-chosen td {
-  background-color: transparent;
-}
 
 /* 本月目标 */
 .workplace-goal-group {
@@ -573,36 +488,24 @@ export default {
 }
 
 /* 小组成员 */
-.user-list-item {
-  padding: 13px 18px;
-}
-
-.user-list-item + .user-list-item {
-  border-top: 1px solid hsla(0, 0%, 60%, .15);
-}
-
-.user-list-item .ele-cell-desc {
-  margin-top: 5px;
-}
-
-.h-elip-box {
+.sun-elip-box {
   display: flex;
   align-items: center;
 }
-.h-elip {
+.sun-elip {
   font-weight: normal;
   font-size: 20px;
 }
-.h-user-list {
+.sun-user-list {
   display: flex;
   justify-content: space-between;
   padding: 13px 18px;
   border-bottom: 1px solid #eee;
 }
-.h-user-list:last-child {
+.sun-user-list:last-child {
   border: 0;
 }
-.h-user-info {
+.sun-user-info {
   display: flex;
 }
 </style>

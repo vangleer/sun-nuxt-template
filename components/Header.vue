@@ -13,10 +13,10 @@
         </div>
       </div>
       <div class="h-header-right">
-        <img src="https://cdn.eleadmin.com/20200610/avatar.jpg" alt="头像">
+        <img :src="userInfo.avatar" alt="头像">
         <el-dropdown @command="handleDropClick">
           <span class="el-dropdown-link">
-            黄万通<i class="el-icon-arrow-down el-icon--right"></i>
+            {{userInfo.username}}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item icon="el-icon-key" command="update_password">修改密码</el-dropdown-item>
@@ -45,7 +45,7 @@
 import {mapState} from 'vuex'
 export default {
   computed:{
-    ...mapState(['openRouteList','currentRoute','currentLine']),
+    ...mapState(['openRouteList','currentRoute','currentLine','userInfo']),
     activeName:{
       get() {
         return this.$store.state.currentPath

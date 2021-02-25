@@ -1,7 +1,7 @@
 import routeList from '../static/data/router'
 console.log()
 export const state = () => ({
-  userInfo: {username:'黄万通'},
+  userInfo: {username:'管理员',avatar:'/imgs/avatar.jpg'},
   theme: {
     navBg: '#03152A',
     navItemBg: '#30c7b4',
